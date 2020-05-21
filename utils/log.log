@@ -1,0 +1,4 @@
+2020-05-18 53:53:46 log.py [line:45 INFO: info]
+2020-05-18 53:53:46 log.py [line:46 WARNING: warning ]
+2020-05-18 53:53:46 log.py [line:47 ERROR: error]
+2020-05-18 53:53:46 log.py [line:48 CRITICAL: critical]

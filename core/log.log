@@ -1,0 +1,888 @@
+2020-05-20 03:03:52 httpbin_validator.py [line:69 ERROR: HTTPConnectionPool(host='124.93.201.59', port=40000): Max retries exceeded with url: http://httpbin.org/get (Caused by ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.HTTPConnection object at 0x105618d90>: Failed to establish a new connection: [Errno 61] Connection refused')))]
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 392, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 1244, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 1290, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 1239, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 1026, in _send_output
+    self.send(msg)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 966, in send
+    self.connect()
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x105618d90>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 725, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='124.93.201.59', port=40000): Max retries exceeded with url: http://httpbin.org/get (Caused by ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.HTTPConnection object at 0x105618d90>: Failed to establish a new connection: [Errno 61] Connection refused')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Volumes/sum177g/spiders_dir/IPProxyPool/core/proxy_validate/httpbin_validator.py", line 53, in check_http_proxy
+    response = requests.get(test_url, headers=get_user_agent(), timeout=TIMEOUT, proxies=proxies)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 510, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPConnectionPool(host='124.93.201.59', port=40000): Max retries exceeded with url: http://httpbin.org/get (Caused by ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.HTTPConnection object at 0x105618d90>: Failed to establish a new connection: [Errno 61] Connection refused')))
+2020-05-20 03:03:52 httpbin_validator.py [line:69 ERROR: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /get (Caused by ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1055c8b50>: Failed to establish a new connection: [Errno 61] Connection refused')))]
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 667, in urlopen
+    self._prepare_proxy(conn)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 930, in _prepare_proxy
+    conn.connect()
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connection.py", line 308, in connect
+    conn = self._new_conn()
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x1055c8b50>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 725, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /get (Caused by ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1055c8b50>: Failed to establish a new connection: [Errno 61] Connection refused')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Volumes/sum177g/spiders_dir/IPProxyPool/core/proxy_validate/httpbin_validator.py", line 53, in check_http_proxy
+    response = requests.get(test_url, headers=get_user_agent(), timeout=TIMEOUT, proxies=proxies)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 510, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /get (Caused by ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1055c8b50>: Failed to establish a new connection: [Errno 61] Connection refused')))
+2020-05-20 03:03:52 httpbin_validator.py [line:69 ERROR: Please check proxy URL. It is malformed and could be missing the host.]
+Traceback (most recent call last):
+  File "/Volumes/sum177g/spiders_dir/IPProxyPool/core/proxy_validate/httpbin_validator.py", line 53, in check_http_proxy
+    response = requests.get(test_url, headers=get_user_agent(), timeout=TIMEOUT, proxies=proxies)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 412, in send
+    conn = self.get_connection(request.url, proxies)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 307, in get_connection
+    raise InvalidProxyURL("Please check proxy URL. It is malformed"
+requests.exceptions.InvalidProxyURL: Please check proxy URL. It is malformed and could be missing the host.
+2020-05-20 03:03:52 httpbin_validator.py [line:69 ERROR: Please check proxy URL. It is malformed and could be missing the host.]
+Traceback (most recent call last):
+  File "/Volumes/sum177g/spiders_dir/IPProxyPool/core/proxy_validate/httpbin_validator.py", line 53, in check_http_proxy
+    response = requests.get(test_url, headers=get_user_agent(), timeout=TIMEOUT, proxies=proxies)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 412, in send
+    conn = self.get_connection(request.url, proxies)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 307, in get_connection
+    raise InvalidProxyURL("Please check proxy URL. It is malformed"
+requests.exceptions.InvalidProxyURL: Please check proxy URL. It is malformed and could be missing the host.
+2020-05-20 03:03:55 httpbin_validator.py [line:69 ERROR: HTTPConnectionPool(host='106.37.195.199', port=8080): Read timed out. (read timeout=3)]
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 426, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 421, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 1336, in getresponse
+    response.begin()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 306, in begin
+    version, status, reason = self._read_status()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 267, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 725, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/retry.py", line 403, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/packages/six.py", line 735, in reraise
+    raise value
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 428, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 336, in _raise_timeout
+    self, url, "Read timed out. (read timeout=%s)" % timeout_value
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='106.37.195.199', port=8080): Read timed out. (read timeout=3)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Volumes/sum177g/spiders_dir/IPProxyPool/core/proxy_validate/httpbin_validator.py", line 53, in check_http_proxy
+    response = requests.get(test_url, headers=get_user_agent(), timeout=TIMEOUT, proxies=proxies)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 529, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPConnectionPool(host='106.37.195.199', port=8080): Read timed out. (read timeout=3)
+2020-05-20 03:03:58 httpbin_validator.py [line:69 ERROR: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /get (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x10573ead0>, 'Connection to 106.37.195.199 timed out. (connect timeout=3)'))]
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 667, in urlopen
+    self._prepare_proxy(conn)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 930, in _prepare_proxy
+    conn.connect()
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connection.py", line 308, in connect
+    conn = self._new_conn()
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connection.py", line 167, in _new_conn
+    % (self.host, self.timeout),
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x10573ead0>, 'Connection to 106.37.195.199 timed out. (connect timeout=3)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 725, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /get (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x10573ead0>, 'Connection to 106.37.195.199 timed out. (connect timeout=3)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Volumes/sum177g/spiders_dir/IPProxyPool/core/proxy_validate/httpbin_validator.py", line 53, in check_http_proxy
+    response = requests.get(test_url, headers=get_user_agent(), timeout=TIMEOUT, proxies=proxies)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /get (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x10573ead0>, 'Connection to 106.37.195.199 timed out. (connect timeout=3)'))
+2020-05-20 03:03:58 httpbin_validator.py [line:69 ERROR: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /get (Caused by ProxyError('Cannot connect to proxy.', ConnectionResetError(54, 'Connection reset by peer')))]
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 667, in urlopen
+    self._prepare_proxy(conn)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 930, in _prepare_proxy
+    conn.connect()
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connection.py", line 316, in connect
+    self._tunnel()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 916, in _tunnel
+    (version, code, message) = response._read_status()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 267, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 54] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 725, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /get (Caused by ProxyError('Cannot connect to proxy.', ConnectionResetError(54, 'Connection reset by peer')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Volumes/sum177g/spiders_dir/IPProxyPool/core/proxy_validate/httpbin_validator.py", line 53, in check_http_proxy
+    response = requests.get(test_url, headers=get_user_agent(), timeout=TIMEOUT, proxies=proxies)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 510, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /get (Caused by ProxyError('Cannot connect to proxy.', ConnectionResetError(54, 'Connection reset by peer')))
+2020-05-20 04:04:01 httpbin_validator.py [line:69 ERROR: HTTPConnectionPool(host='218.22.7.62', port=53281): Max retries exceeded with url: http://httpbin.org/get (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x105743450>, 'Connection to 218.22.7.62 timed out. (connect timeout=3)'))]
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 392, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 1244, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 1290, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 1239, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 1026, in _send_output
+    self.send(msg)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 966, in send
+    self.connect()
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connection.py", line 167, in _new_conn
+    % (self.host, self.timeout),
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPConnection object at 0x105743450>, 'Connection to 218.22.7.62 timed out. (connect timeout=3)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 725, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='218.22.7.62', port=53281): Max retries exceeded with url: http://httpbin.org/get (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x105743450>, 'Connection to 218.22.7.62 timed out. (connect timeout=3)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Volumes/sum177g/spiders_dir/IPProxyPool/core/proxy_validate/httpbin_validator.py", line 53, in check_http_proxy
+    response = requests.get(test_url, headers=get_user_agent(), timeout=TIMEOUT, proxies=proxies)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='218.22.7.62', port=53281): Max retries exceeded with url: http://httpbin.org/get (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x105743450>, 'Connection to 218.22.7.62 timed out. (connect timeout=3)'))
+2020-05-20 04:04:04 httpbin_validator.py [line:69 ERROR: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /get (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x10573ea50>, 'Connection to 218.22.7.62 timed out. (connect timeout=3)'))]
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 667, in urlopen
+    self._prepare_proxy(conn)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 930, in _prepare_proxy
+    conn.connect()
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connection.py", line 308, in connect
+    conn = self._new_conn()
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connection.py", line 167, in _new_conn
+    % (self.host, self.timeout),
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x10573ea50>, 'Connection to 218.22.7.62 timed out. (connect timeout=3)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 725, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /get (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x10573ea50>, 'Connection to 218.22.7.62 timed out. (connect timeout=3)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Volumes/sum177g/spiders_dir/IPProxyPool/core/proxy_validate/httpbin_validator.py", line 53, in check_http_proxy
+    response = requests.get(test_url, headers=get_user_agent(), timeout=TIMEOUT, proxies=proxies)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /get (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x10573ea50>, 'Connection to 218.22.7.62 timed out. (connect timeout=3)'))
+2020-05-20 04:04:08 httpbin_validator.py [line:69 ERROR: HTTPConnectionPool(host='183.63.188.250', port=8808): Read timed out. (read timeout=3)]
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 426, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 421, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 1336, in getresponse
+    response.begin()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 306, in begin
+    version, status, reason = self._read_status()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 267, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 725, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/retry.py", line 403, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/packages/six.py", line 735, in reraise
+    raise value
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 428, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 336, in _raise_timeout
+    self, url, "Read timed out. (read timeout=%s)" % timeout_value
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='183.63.188.250', port=8808): Read timed out. (read timeout=3)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Volumes/sum177g/spiders_dir/IPProxyPool/core/proxy_validate/httpbin_validator.py", line 53, in check_http_proxy
+    response = requests.get(test_url, headers=get_user_agent(), timeout=TIMEOUT, proxies=proxies)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 529, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPConnectionPool(host='183.63.188.250', port=8808): Read timed out. (read timeout=3)
+2020-05-20 04:04:11 httpbin_validator.py [line:69 ERROR: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /get (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x1055ed250>, 'Connection to 183.63.188.250 timed out. (connect timeout=3)'))]
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 667, in urlopen
+    self._prepare_proxy(conn)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 930, in _prepare_proxy
+    conn.connect()
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connection.py", line 308, in connect
+    conn = self._new_conn()
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connection.py", line 167, in _new_conn
+    % (self.host, self.timeout),
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x1055ed250>, 'Connection to 183.63.188.250 timed out. (connect timeout=3)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 725, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /get (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x1055ed250>, 'Connection to 183.63.188.250 timed out. (connect timeout=3)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Volumes/sum177g/spiders_dir/IPProxyPool/core/proxy_validate/httpbin_validator.py", line 53, in check_http_proxy
+    response = requests.get(test_url, headers=get_user_agent(), timeout=TIMEOUT, proxies=proxies)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /get (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x1055ed250>, 'Connection to 183.63.188.250 timed out. (connect timeout=3)'))
+2020-05-20 04:04:15 httpbin_validator.py [line:69 ERROR: HTTPConnectionPool(host='112.47.3.53', port=3128): Read timed out. (read timeout=3)]
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 426, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 421, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 1336, in getresponse
+    response.begin()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 306, in begin
+    version, status, reason = self._read_status()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 267, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 725, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/retry.py", line 403, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/packages/six.py", line 735, in reraise
+    raise value
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 428, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 336, in _raise_timeout
+    self, url, "Read timed out. (read timeout=%s)" % timeout_value
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='112.47.3.53', port=3128): Read timed out. (read timeout=3)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Volumes/sum177g/spiders_dir/IPProxyPool/core/proxy_validate/httpbin_validator.py", line 53, in check_http_proxy
+    response = requests.get(test_url, headers=get_user_agent(), timeout=TIMEOUT, proxies=proxies)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 529, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPConnectionPool(host='112.47.3.53', port=3128): Read timed out. (read timeout=3)
+2020-05-20 04:04:18 httpbin_validator.py [line:69 ERROR: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /get (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x1055c8e50>, 'Connection to 112.47.3.53 timed out. (connect timeout=3)'))]
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 667, in urlopen
+    self._prepare_proxy(conn)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 930, in _prepare_proxy
+    conn.connect()
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connection.py", line 308, in connect
+    conn = self._new_conn()
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connection.py", line 167, in _new_conn
+    % (self.host, self.timeout),
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x1055c8e50>, 'Connection to 112.47.3.53 timed out. (connect timeout=3)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 725, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /get (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x1055c8e50>, 'Connection to 112.47.3.53 timed out. (connect timeout=3)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Volumes/sum177g/spiders_dir/IPProxyPool/core/proxy_validate/httpbin_validator.py", line 53, in check_http_proxy
+    response = requests.get(test_url, headers=get_user_agent(), timeout=TIMEOUT, proxies=proxies)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /get (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x1055c8e50>, 'Connection to 112.47.3.53 timed out. (connect timeout=3)'))
+2020-05-20 04:04:18 httpbin_validator.py [line:69 ERROR: HTTPConnectionPool(host='14.115.105.239', port=808): Max retries exceeded with url: http://httpbin.org/get (Caused by ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1057566d0>: Failed to establish a new connection: [Errno 61] Connection refused')))]
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 392, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 1244, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 1290, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 1239, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 1026, in _send_output
+    self.send(msg)
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 966, in send
+    self.connect()
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x1057566d0>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 725, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='14.115.105.239', port=808): Max retries exceeded with url: http://httpbin.org/get (Caused by ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1057566d0>: Failed to establish a new connection: [Errno 61] Connection refused')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Volumes/sum177g/spiders_dir/IPProxyPool/core/proxy_validate/httpbin_validator.py", line 53, in check_http_proxy
+    response = requests.get(test_url, headers=get_user_agent(), timeout=TIMEOUT, proxies=proxies)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 510, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPConnectionPool(host='14.115.105.239', port=808): Max retries exceeded with url: http://httpbin.org/get (Caused by ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1057566d0>: Failed to establish a new connection: [Errno 61] Connection refused')))
+2020-05-20 04:04:18 httpbin_validator.py [line:69 ERROR: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /get (Caused by ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1057623d0>: Failed to establish a new connection: [Errno 61] Connection refused')))]
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 667, in urlopen
+    self._prepare_proxy(conn)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 930, in _prepare_proxy
+    conn.connect()
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connection.py", line 308, in connect
+    conn = self._new_conn()
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x1057623d0>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 725, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /get (Caused by ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1057623d0>: Failed to establish a new connection: [Errno 61] Connection refused')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Volumes/sum177g/spiders_dir/IPProxyPool/core/proxy_validate/httpbin_validator.py", line 53, in check_http_proxy
+    response = requests.get(test_url, headers=get_user_agent(), timeout=TIMEOUT, proxies=proxies)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 510, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /get (Caused by ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1057623d0>: Failed to establish a new connection: [Errno 61] Connection refused')))
+2020-05-20 04:04:21 httpbin_validator.py [line:69 ERROR: HTTPConnectionPool(host='36.112.139.146', port=3128): Read timed out. (read timeout=3)]
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 426, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 421, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 1336, in getresponse
+    response.begin()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 306, in begin
+    version, status, reason = self._read_status()
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py", line 267, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 725, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/util/retry.py", line 403, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/packages/six.py", line 735, in reraise
+    raise value
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 428, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 336, in _raise_timeout
+    self, url, "Read timed out. (read timeout=%s)" % timeout_value
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='36.112.139.146', port=3128): Read timed out. (read timeout=3)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Volumes/sum177g/spiders_dir/IPProxyPool/core/proxy_validate/httpbin_validator.py", line 53, in check_http_proxy
+    response = requests.get(test_url, headers=get_user_agent(), timeout=TIMEOUT, proxies=proxies)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/requests/adapters.py", line 529, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPConnectionPool(host='36.112.139.146', port=3128): Read timed out. (read timeout=3)
+2020-05-20 47:47:19 _internal.py [line:113 INFO:  * Running on http://0.0.0.0:9999/ (Press CTRL+C to quit)]
+2020-05-20 47:47:25 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:47:25] "[33mGET / HTTP/1.1[0m" 404 -]
+2020-05-20 47:47:26 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:47:26] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -]
+2020-05-20 47:47:35 app.py [line:1892 ERROR: Exception on /random [GET]]
+Traceback (most recent call last):
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhangmiaomiao/VirtualenvS/scrapy_py3/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Volumes/sum177g/spiders_dir/IPProxyPool/core/proxy_api.py", line 26, in random_proxy
+    return random.choice[proxies]
+TypeError: 'method' object is not subscriptable
+2020-05-20 47:47:35 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:47:35] "[35m[1mGET /random HTTP/1.1[0m" 500 -]
+2020-05-20 48:48:39 _internal.py [line:113 INFO:  * Running on http://0.0.0.0:9999/ (Press CTRL+C to quit)]
+2020-05-20 48:48:39 _internal.py [line:113 INFO:  * Restarting with stat]
+2020-05-20 48:48:39 _internal.py [line:113 WARNING:  * Debugger is active!]
+2020-05-20 48:48:39 _internal.py [line:113 INFO:  * Debugger PIN: 168-590-152]
+2020-05-20 48:48:42 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:48:42] "[35m[1mGET /random HTTP/1.1[0m" 500 -]
+2020-05-20 48:48:42 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:48:42] "[37mGET /random?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -]
+2020-05-20 48:48:42 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:48:42] "[37mGET /random?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -]
+2020-05-20 48:48:42 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:48:42] "[37mGET /random?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -]
+2020-05-20 48:48:42 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:48:42] "[37mGET /random?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -]
+2020-05-20 48:48:42 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:48:42] "[37mGET /random?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -]
+2020-05-20 48:48:42 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:48:42] "[37mGET /random?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -]
+2020-05-20 48:48:59 _internal.py [line:113 INFO:  * Running on http://0.0.0.0:9999/ (Press CTRL+C to quit)]
+2020-05-20 48:48:59 _internal.py [line:113 INFO:  * Restarting with stat]
+2020-05-20 49:49:00 _internal.py [line:113 WARNING:  * Debugger is active!]
+2020-05-20 49:49:00 _internal.py [line:113 INFO:  * Debugger PIN: 168-590-152]
+2020-05-20 51:51:35 _internal.py [line:113 INFO:  * Detected change in '/Volumes/sum177g/spiders_dir/IPProxyPool/core/proxy_api.py', reloading]
+2020-05-20 51:51:35 _internal.py [line:113 INFO:  * Restarting with stat]
+2020-05-20 51:51:36 _internal.py [line:113 WARNING:  * Debugger is active!]
+2020-05-20 51:51:36 _internal.py [line:113 INFO:  * Debugger PIN: 168-590-152]
+2020-05-20 51:51:39 _internal.py [line:113 INFO:  * Detected change in '/Volumes/sum177g/spiders_dir/IPProxyPool/core/proxy_api.py', reloading]
+2020-05-20 51:51:39 _internal.py [line:113 INFO:  * Restarting with stat]
+2020-05-20 51:51:40 _internal.py [line:113 WARNING:  * Debugger is active!]
+2020-05-20 51:51:40 _internal.py [line:113 INFO:  * Debugger PIN: 168-590-152]
+2020-05-20 52:52:39 _internal.py [line:113 INFO:  * Running on http://0.0.0.0:9999/ (Press CTRL+C to quit)]
+2020-05-20 52:52:39 _internal.py [line:113 INFO:  * Restarting with stat]
+2020-05-20 52:52:39 _internal.py [line:113 WARNING:  * Debugger is active!]
+2020-05-20 52:52:39 _internal.py [line:113 INFO:  * Debugger PIN: 168-590-152]
+2020-05-20 52:52:45 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:52:45] "[35m[1mGET /random HTTP/1.1[0m" 500 -]
+2020-05-20 52:52:45 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:52:45] "[37mGET /random?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -]
+2020-05-20 52:52:45 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:52:45] "[37mGET /random?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -]
+2020-05-20 52:52:45 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:52:45] "[37mGET /random?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -]
+2020-05-20 52:52:45 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:52:45] "[37mGET /random?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -]
+2020-05-20 52:52:45 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:52:45] "[37mGET /random?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -]
+2020-05-20 52:52:45 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:52:45] "[37mGET /random?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -]
+2020-05-20 52:52:45 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:52:45] "[35m[1mGET /proxies HTTP/1.1[0m" 500 -]
+2020-05-20 52:52:45 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:52:45] "[37mGET /proxies?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -]
+2020-05-20 52:52:45 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:52:45] "[37mGET /proxies?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -]
+2020-05-20 52:52:45 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:52:45] "[37mGET /proxies?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -]
+2020-05-20 52:52:46 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:52:46] "[37mGET /proxies?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -]
+2020-05-20 52:52:46 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:52:46] "[37mGET /proxies?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -]
+2020-05-20 52:52:46 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:52:46] "[37mGET /proxies?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -]
+2020-05-20 55:55:48 _internal.py [line:113 INFO:  * Running on http://0.0.0.0:9999/ (Press CTRL+C to quit)]
+2020-05-20 55:55:48 _internal.py [line:113 INFO:  * Restarting with stat]
+2020-05-20 55:55:48 _internal.py [line:113 WARNING:  * Debugger is active!]
+2020-05-20 55:55:48 _internal.py [line:113 INFO:  * Debugger PIN: 168-590-152]
+2020-05-20 55:55:50 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:55:50] "[37mGET /proxies HTTP/1.1[0m" 200 -]
+2020-05-20 56:56:00 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:56:00] "[35m[1mGET /random HTTP/1.1[0m" 500 -]
+2020-05-20 56:56:00 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:56:00] "[37mGET /random?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -]
+2020-05-20 56:56:00 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:56:00] "[37mGET /random?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -]
+2020-05-20 56:56:00 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:56:00] "[37mGET /random?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -]
+2020-05-20 56:56:00 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:56:00] "[37mGET /random?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -]
+2020-05-20 56:56:00 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 16:56:00] "[37mGET /random?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -]
+2020-05-20 00:00:21 _internal.py [line:113 INFO:  * Running on http://0.0.0.0:9999/ (Press CTRL+C to quit)]
+2020-05-20 00:00:21 _internal.py [line:113 INFO:  * Restarting with stat]
+2020-05-20 00:00:21 _internal.py [line:113 WARNING:  * Debugger is active!]
+2020-05-20 00:00:21 _internal.py [line:113 INFO:  * Debugger PIN: 168-590-152]
+2020-05-20 00:00:24 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 17:00:24] "[35m[1mGET /random HTTP/1.1[0m" 500 -]
+2020-05-20 00:00:24 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 17:00:24] "[37mGET /random?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -]
+2020-05-20 00:00:24 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 17:00:24] "[37mGET /random?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -]
+2020-05-20 00:00:24 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 17:00:24] "[37mGET /random?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -]
+2020-05-20 00:00:24 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 17:00:24] "[37mGET /random?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -]
+2020-05-20 00:00:24 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 17:00:24] "[37mGET /random?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -]
+2020-05-20 00:00:25 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 17:00:25] "[37mGET /random?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -]
+2020-05-20 01:01:39 _internal.py [line:113 INFO:  * Running on http://0.0.0.0:9999/ (Press CTRL+C to quit)]
+2020-05-20 01:01:39 _internal.py [line:113 INFO:  * Restarting with stat]
+2020-05-20 01:01:39 _internal.py [line:113 WARNING:  * Debugger is active!]
+2020-05-20 01:01:39 _internal.py [line:113 INFO:  * Debugger PIN: 168-590-152]
+2020-05-20 01:01:41 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 17:01:41] "[37mGET /random HTTP/1.1[0m" 200 -]
+2020-05-20 01:01:56 _internal.py [line:113 INFO:  * Detected change in '/Volumes/sum177g/spiders_dir/IPProxyPool/core/proxy_api.py', reloading]
+2020-05-20 01:01:56 _internal.py [line:113 INFO:  * Restarting with stat]
+2020-05-20 01:01:56 _internal.py [line:113 WARNING:  * Debugger is active!]
+2020-05-20 01:01:56 _internal.py [line:113 INFO:  * Debugger PIN: 168-590-152]
+2020-05-20 01:01:57 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 17:01:57] "[37mGET /random HTTP/1.1[0m" 200 -]
+2020-05-20 02:02:44 _internal.py [line:113 INFO:  * Detected change in '/Volumes/sum177g/spiders_dir/IPProxyPool/core/proxy_api.py', reloading]
+2020-05-20 02:02:44 _internal.py [line:113 INFO:  * Restarting with stat]
+2020-05-20 02:02:45 _internal.py [line:113 WARNING:  * Debugger is active!]
+2020-05-20 02:02:45 _internal.py [line:113 INFO:  * Debugger PIN: 168-590-152]
+2020-05-20 02:02:45 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 17:02:45] "[35m[1mGET /random HTTP/1.1[0m" 500 -]
+2020-05-20 02:02:45 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 17:02:45] "[37mGET /random?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -]
+2020-05-20 02:02:45 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 17:02:45] "[37mGET /random?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -]
+2020-05-20 02:02:45 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 17:02:45] "[37mGET /random?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -]
+2020-05-20 02:02:45 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 17:02:45] "[37mGET /random?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -]
+2020-05-20 02:02:45 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 17:02:45] "[37mGET /random?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -]
+2020-05-20 02:02:45 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 17:02:45] "[37mGET /random?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -]
+2020-05-20 03:03:04 _internal.py [line:113 INFO:  * Detected change in '/Volumes/sum177g/spiders_dir/IPProxyPool/core/proxy_api.py', reloading]
+2020-05-20 03:03:04 _internal.py [line:113 INFO:  * Restarting with stat]
+2020-05-20 03:03:04 _internal.py [line:113 WARNING:  * Debugger is active!]
+2020-05-20 03:03:04 _internal.py [line:113 INFO:  * Debugger PIN: 168-590-152]
+2020-05-20 03:03:06 _internal.py [line:113 INFO:  * Detected change in '/Volumes/sum177g/spiders_dir/IPProxyPool/core/proxy_api.py', reloading]
+2020-05-20 03:03:07 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 17:03:07] "[37mGET /random HTTP/1.1[0m" 200 -]
+2020-05-20 03:03:08 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 17:03:08] "[37mGET /random HTTP/1.1[0m" 200 -]
+2020-05-20 03:03:09 _internal.py [line:113 INFO:  * Restarting with stat]
+2020-05-20 03:03:09 _internal.py [line:113 WARNING:  * Debugger is active!]
+2020-05-20 03:03:09 _internal.py [line:113 INFO:  * Debugger PIN: 168-590-152]
+2020-05-20 03:03:09 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 17:03:09] "[37mGET /random HTTP/1.1[0m" 200 -]
+2020-05-20 03:03:11 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 17:03:11] "[37mGET /random HTTP/1.1[0m" 200 -]
+2020-05-20 03:03:11 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 17:03:11] "[37mGET /random HTTP/1.1[0m" 200 -]
+2020-05-20 03:03:12 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 17:03:12] "[37mGET /random HTTP/1.1[0m" 200 -]
+2020-05-20 03:03:12 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 17:03:12] "[37mGET /random HTTP/1.1[0m" 200 -]
+2020-05-20 03:03:13 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 17:03:13] "[37mGET /random HTTP/1.1[0m" 200 -]
+2020-05-20 03:03:13 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 17:03:13] "[37mGET /random HTTP/1.1[0m" 200 -]
+2020-05-20 03:03:14 _internal.py [line:113 INFO: 127.0.0.1 - - [20/May/2020 17:03:14] "[37mGET /random HTTP/1.1[0m" 200 -]

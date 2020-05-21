@@ -1,0 +1,7 @@
+2020-05-18 19:19:56 mongo_pool.py [line:25 INFO: insert success]
+2020-05-18 21:21:07 mongo_pool.py [line:27 WARNING: already exist]
+2020-05-18 22:22:16 mongo_pool.py [line:27 WARNING: already exist]
+2020-05-18 22:22:26 mongo_pool.py [line:27 WARNING: already exist]
+2020-05-18 28:28:19 mongo_pool.py [line:25 INFO: insert success]
+2020-05-18 28:28:19 mongo_pool.py [line:25 INFO: insert success]
+2020-05-18 28:28:19 mongo_pool.py [line:41 INFO: delete 124.93.201.09]
